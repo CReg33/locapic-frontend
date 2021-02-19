@@ -16,14 +16,13 @@ function HomeScreen(props) {
     }
 
     useEffect(() => { 
-        // const cleanAsyncStorage = async () => {
-        //     await AsyncStorage.clear()
-        // } 
-        // cleanAsyncStorage();
+        // AsyncStorage.clear();
         const getUserFromAsyncStorage = async () => {
             await AsyncStorage.getItem("userName", (error, name)=>{ 
-                setUserName(name);
-                setHasName(true);
+                if (name) {
+                    setUserName(name);
+                    setHasName(true);
+                }
             })
         } 
         getUserFromAsyncStorage();
@@ -37,7 +36,7 @@ function HomeScreen(props) {
                         title=" Go to Map"   
                         icon={<FontAwesome name="arrow-right" size={15} color='#eb4d4b' />}
                         onPress={() => props.navigation.navigate('BottomNav', {screen: 'MapScreen'})}>
-                    </Button>
+                </Button>
             </View>
             )
     }

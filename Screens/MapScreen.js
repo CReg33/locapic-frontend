@@ -35,10 +35,7 @@ function MapScreen(props) {
     const [descPOI, setDescPOI] = useState();
 
     useEffect(()=> {
-        // const cleanAsyncStorage = async () => {
-        //     await AsyncStorage.clear()
-        // } 
-        // cleanAsyncStorage();
+        // AsyncStorage.clear();
         const getPOIFromAsyncStorage = async() => {
             await AsyncStorage.getItem("POI", (error, poi)=>{ 
                 if (poi) {
